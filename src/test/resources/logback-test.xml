@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+   <contextName>grgr.test.p323942</contextName>
+
+   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+      <layout class="ch.qos.logback.classic.PatternLayout">
+         <pattern>%d{HH:mm:ss.SSS} %-5level {%thread} (%F:%L\) [%logger{20}] : %msg%n</pattern>
+      </layout>
+   </appender>
+
+   <logger name="grgr.test.p323942" level="TRACE" />
+
+   <root level="INFO">
+      <appender-ref ref="CONSOLE" />
+   </root>
+
+</configuration>
