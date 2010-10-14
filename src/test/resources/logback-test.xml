@@ -2,7 +2,7 @@
 
 <configuration>
 
-   <contextName>grgr.test.p323942</contextName>
+   <contextName>grgr.spring.forum.help</contextName>
 
    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
       <layout class="ch.qos.logback.classic.PatternLayout">
@@ -10,7 +10,7 @@
       </layout>
    </appender>
 
-   <logger name="grgr.test.p323942" level="TRACE" />
+   <logger name="grgr.spring.forum.help" level="TRACE" />
 
    <root level="INFO">
       <appender-ref ref="CONSOLE" />

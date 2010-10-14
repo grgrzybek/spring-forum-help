@@ -7,8 +7,8 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>grgr.test</groupId>
-	<artifactId>grgr.test.p323942</artifactId>
+	<groupId>grgr.spring</groupId>
+	<artifactId>grgr.spring.forum.help</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 
@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>3.0.4.RELEASE</version>
+			<version>3.0.3.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -63,7 +63,15 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>3.0.4.RELEASE</version>
+			<version>3.0.3.RELEASE</version>
+		</dependency>
+		
+		<!-- Other -->
+		
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6.2</version>
 		</dependency>
 
 		<!-- javax.servlet -->
