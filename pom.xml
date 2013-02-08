@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>grgr.spring</groupId>
 	<artifactId>grgr.spring.forum.help</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.0.RELEASE-SNAPSHOT</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<prerequisites>
+		<maven>3.0.4</maven>
+	</prerequisites>
+
 	<build>
 		<plugins>
 			<plugin>
 				<!--
-					wywołanie:
 					set MAVEN_OPTS=-Dfile.encoding=UTF-8
 					mvn org.jvnet.jaxb2.maven2:maven-jaxb2-plugin:generate
 				-->
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.8.0</version>
+				<version>0.8.2</version>
 				<configuration>
 					<removeOldOutput>true</removeOldOutput>
 					<extension>true</extension>
@@ -44,7 +44,7 @@
 					<dependency>
 						<groupId>javax.xml.bind</groupId>
 						<artifactId>jaxb-api</artifactId>
-						<version>2.2.4</version>
+						<version>2.2.7</version>
 						<exclusions>
 							<exclusion>
 								<groupId>javax.xml.stream</groupId>
@@ -55,12 +55,12 @@
 					<dependency>
 						<groupId>com.sun.xml.bind</groupId>
 						<artifactId>jaxb-impl</artifactId>
-						<version>2.2.4-1</version>
+						<version>2.2.6</version>
 					</dependency>
 					<dependency>
 						<groupId>com.sun.xml.bind</groupId>
 						<artifactId>jaxb-xjc</artifactId>
-						<version>2.2.4-1</version>
+						<version>2.2.6</version>
 					</dependency>
 					<dependency>
 						<groupId>org.jvnet.jaxb2_commons</groupId>
@@ -76,13 +76,12 @@
 			</plugin>
 			<plugin>
 				<!--
-					wywołanie:
 					set MAVEN_OPTS=-Dfile.encoding=UTF-8
 					mvn clean org.apache.cxf:cxf-codegen-plugin:wsdl2java
 				-->
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-codegen-plugin</artifactId>
-				<version>2.6.1</version>
+				<version>2.7.3</version>
 				<configuration>
 					<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
 					<wsdlRoot>${basedir}/src/test/resources</wsdlRoot>
@@ -94,6 +93,8 @@
 							<extraarg>-impl</extraarg>
 							<extraarg>-xjc-no-header</extraarg>
 							<extraarg>-xjc-enableIntrospection</extraarg>
+							<extraarg>-xjc-Xvalue-constructor</extraarg>
+							<extraarg>-xjc-Xfluent-api</extraarg>
 							<extraarg>-nexclude</extraarg>
 							<extraarg>=org.w3._2001.xmlschema</extraarg>
 						</extraargs>
@@ -103,7 +104,7 @@
 					<dependency>
 						<groupId>javax.xml.bind</groupId>
 						<artifactId>jaxb-api</artifactId>
-						<version>2.2.6</version>
+						<version>2.2.7</version>
 						<exclusions>
 							<exclusion>
 								<groupId>javax.xml.stream</groupId>
@@ -114,12 +115,12 @@
 					<dependency>
 						<groupId>com.sun.xml.bind</groupId>
 						<artifactId>jaxb-impl</artifactId>
-						<version>2.2.5-2</version>
+						<version>2.2.6</version>
 					</dependency>
 					<dependency>
 						<groupId>com.sun.xml.bind</groupId>
 						<artifactId>jaxb-xjc</artifactId>
-						<version>2.2.5-2</version>
+						<version>2.2.6</version>
 					</dependency>
 					<dependency>
 						<groupId>org.jvnet.jaxb2_commons</groupId>
@@ -130,9 +131,11 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
+					<optimize>true</optimize>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -145,7 +148,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -167,7 +170,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>3.1.0.RC2</version>
+			<version>3.2.1.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -178,17 +181,17 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>3.1.0.RC2</version>
+			<version>3.2.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>3.1.0.RC2</version>
+			<version>3.2.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
-			<version>3.1.0.RC2</version>
+			<version>3.2.1.RELEASE</version>
 		</dependency>
 		
 		<!-- Other -->
@@ -196,7 +199,7 @@
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>2.0</version>
+			<version>2.1</version>
 		</dependency>
 
 		<!-- javax.servlet -->
@@ -225,22 +228,22 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.6.4</version>
+			<version>1.7.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.6.4</version>
+			<version>1.7.2</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.9</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.9</version>
 		</dependency>
 
 	</dependencies>

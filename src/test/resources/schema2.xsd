@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="people">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="employee"/>
+        <xsd:element ref="customer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="employee">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="name"/>
+        <xsd:element ref="country"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="name">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:any namespace="http://www.w3.org/namespace/"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="country">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:any namespace="http://www.w3.org/namespace/"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="customer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="cname"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="cname">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:any namespace="http://www.w3.org/namespace/"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

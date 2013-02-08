@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people xmlns:p1="http://www.w3.org/namespace/">
+  <employee>
+    <name>
+      <p1:a>x</p1:a>
+    </name>
+    <country>
+      <p1:a>x</p1:a>
+    </country>
+  </employee>
+  <customer>
+    <cname>
+      <p1:a>x</p1:a>
+    </cname>
+  </customer>
+</people>

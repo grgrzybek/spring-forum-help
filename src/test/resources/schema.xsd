@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:test:1">
+
+   <xs:element name="element1">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="element-sub1" maxOccurs="unbounded">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="element-sub-sub1" maxOccurs="unbounded">
+                        <xs:complexType>
+                           <xs:attribute name="attribute-sub-1" type="xs:string" />
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+         <xs:attribute name="attribute1" type="xs:string" />
+      </xs:complexType>
+   </xs:element>
+
+</xs:schema>
