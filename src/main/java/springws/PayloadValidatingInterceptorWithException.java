@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Exence SA
+ * Copyright 2013 Grzegorz Grzybek SA
  * Created: 8 lut 2013 10:35:46
  */
 

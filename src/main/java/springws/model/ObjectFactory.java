@@ -1,13 +1,11 @@
 /*
- * Copyright 2013 Exence SA
+ * Copyright 2013 Grzegorz Grzybek SA
  * Created: 8 lut 2013 10:44:12
  */
 
 package springws.model;
 
 import javax.xml.bind.annotation.XmlRegistry;
-
-import springws.model.ServiceFaultCdo;
 
 /**
  * <p></p>
@@ -17,14 +15,24 @@ import springws.model.ServiceFaultCdo;
 @XmlRegistry
 public class ObjectFactory
 {
-	public Request createRequest()
+	public Request1 createRequest1()
 	{
-		return new Request();
+		return new Request1();
 	}
 
-	public Response createResponse()
+	public Response1 createResponse1()
 	{
-		return new Response();
+		return new Response1();
+	}
+
+	public Request2 createRequest2()
+	{
+		return new Request2();
+	}
+	
+	public Response2 createResponse2()
+	{
+		return new Response2();
 	}
 
 	/**

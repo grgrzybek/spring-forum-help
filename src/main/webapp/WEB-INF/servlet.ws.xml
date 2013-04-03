@@ -12,22 +12,36 @@
 		http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	<ws:annotation-driven />
-	<ws:interceptors>
-		<ref bean="validatingInterceptor" />
-	</ws:interceptors>
+	<!--ws:annotation-driven /-->
 
-	<ws:dynamic-wsdl id="dwsdl" portTypeName="Port1" locationUri="/ws/myservice">
+	<ws:dynamic-wsdl id="spml-readonly" portTypeName="SpmlReadOnlyService" locationUri="SpmlReadOnly">
 		<ws:xsd location="classpath:springws/model/schema.xsd" />
+	</ws:dynamic-wsdl>
+
+	<ws:dynamic-wsdl id="spml-crud" portTypeName="SpmlCrudService" locationUri="SpmlCrud">
+		<ws:xsd location="classpath:springws/model/schema.xsd" />
+		<ws:xsd location="classpath:springws/model/schema2.xsd" />
 	</ws:dynamic-wsdl>
 
 	<context:component-scan base-package="springws" />
 
-	<bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping" />
+	<bean class="springws.PathAndPayloadRootAnnotationEndpointMapping" />
 
-	<bean class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
-		<description>Enables the MessageDispatchServlet to invoke methods requiring OXM marshalling.</description>
-		<constructor-arg ref="marshaller" />
+	<bean class="org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter">
+		<property name="methodArgumentResolvers">
+			<list>
+				<ref local="marshallingPayloadMethodProcessor"/>
+			</list>
+		</property>
+		<property name="methodReturnValueHandlers">
+			<list>
+				<ref local="marshallingPayloadMethodProcessor"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="marshallingPayloadMethodProcessor" class="org.springframework.ws.server.endpoint.adapter.method.MarshallingPayloadMethodProcessor">
+		<property name="marshaller" ref="marshaller" />
+		<property name="unmarshaller" ref="marshaller" />
 	</bean>
 
 	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
@@ -36,21 +50,6 @@
 				<value>springws.model</value>
 			</list>
 		</property>
-	</bean>
-
-	<bean id="myResolver" class="springws.ServiceFaultExceptionResolver">
-		<property name="marshaller" ref="marshaller" />
-	</bean>
-
-	<bean id="validatingInterceptor" class="springws.PayloadValidatingInterceptorWithException">
-		<property name="resolver" ref="myResolver" />
-		<property name="schemas">
-			<list>
-				<value>classpath:springws/model/schema.xsd</value>
-			</list>
-		</property>
-		<property name="validateRequest" value="true" />
-		<property name="validateResponse" value="true" />
 	</bean>
 
 </beans>

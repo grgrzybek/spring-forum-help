@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 NetLine Group sp. z o.o.
+ * Copyright 2011 Grzegorz Grzybek Group sp. z o.o.
  * Created: 14-12-2011 07:57:53
  */
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Exence SA
+ * Copyright 2013 Grzegorz Grzybek SA
  * Created: 8 lut 2013 10:47:48
  */
 
@@ -9,17 +9,15 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p></p>
  *
  * @author Grzegorz Grzybek
  */
-@XmlType(name = "RequestType")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "methodRequest")
-public class Request
+@XmlRootElement(name = "method1Request")
+public class Request1
 {
 	@XmlElement(name = "value")
 	private String value;

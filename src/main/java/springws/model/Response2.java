@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Exence SA
+ * Copyright 2013 Grzegorz Grzybek SA
  * Created: 8 lut 2013 10:47:53
  */
 
@@ -9,17 +9,15 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p></p>
  *
  * @author Grzegorz Grzybek
  */
-@XmlType(name = "ResponseType")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "methodResponse")
-public class Response
+@XmlRootElement(name = "method2Response")
+public class Response2
 {
 	@XmlElement(name = "result-value")
 	private String result;
@@ -27,7 +25,7 @@ public class Response
 	/**
 	 * @param value
 	 */
-	public Response(String value)
+	public Response2(String value)
 	{
 		this.result = value;
 	}
@@ -35,7 +33,7 @@ public class Response
 	/**
 	 * 
 	 */
-	public Response()
+	public Response2()
 	{
 		// TODO Auto-generated constructor stub
 	}

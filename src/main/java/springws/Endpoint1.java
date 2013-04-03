@@ -1,16 +1,17 @@
 /*
- * Copyright 2013 Exence SA
+ * Copyright 2013 Grzegorz Grzybek SA
  * Created: 8 lut 2013 10:47:13
  */
 
 package springws;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import springws.model.Request;
-import springws.model.Response;
+import springws.model.Request1;
+import springws.model.Response2;
 
 /**
  * <p></p>
@@ -18,12 +19,13 @@ import springws.model.Response;
  * @author Grzegorz Grzybek
  */
 @org.springframework.ws.server.endpoint.annotation.Endpoint
-public class Endpoint
+@RequestMapping("/ws/SpmlReadOnly")
+public class Endpoint1
 {
-	@PayloadRoot(namespace = "urn:test", localPart = "methodRequest")
 	@ResponsePayload
-	public Response method(@RequestPayload Request request) throws Exception
+	@PayloadRoot(namespace = "urn:test", localPart = "method1Request")
+	public Response2 method(@RequestPayload Request1 request) throws Exception
 	{
-		return new Response(request.getValue());
+		return new Response2("e1 m1");
 	}
 }
